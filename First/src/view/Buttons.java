@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.PointerInfo;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -32,7 +33,8 @@ public class Buttons implements MouseListener{
 public void mouseClicked(MouseEvent e) {
 	if(e.getSource()== toolButtons[0]) {
 		System.out.println("새 종이");
-		canvas.setBackground(Color.BLACK);
+		System.out.println(e.getX());
+		System.out.println(e.getY());
 	}
 }
 
