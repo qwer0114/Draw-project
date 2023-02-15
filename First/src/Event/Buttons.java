@@ -1,4 +1,4 @@
-package view;
+package Event;
 
 import java.awt.Color;
 import java.awt.PointerInfo;
@@ -7,9 +7,16 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 
+import view.Canvas;
+
 public class Buttons implements MouseListener{
-	JButton[] toolButtons = new JButton[5];
+	public JButton[] toolButtons = new JButton[6];
 	Canvas canvas = new Canvas();
+	CanvasEvent canvasEvent = new CanvasEvent();
+	String buttonValue;
+
+	
+
 //	JButton newPaperBtn = new JButton("새 종이"); 
 //	JButton tryBtn = new JButton("삼각형"); 
 //	JButton recBtn = new JButton("사각형"); 
@@ -18,10 +25,11 @@ public class Buttons implements MouseListener{
 
 	public Buttons() {
 		toolButtons[0] = new JButton("새 종이");
-		toolButtons[1] = new JButton("삼각형");
-		toolButtons[2] = new JButton("사각형");
-		toolButtons[3] = new JButton("원");
-		toolButtons[4] = new JButton("지우기");
+		toolButtons[1] = new JButton("직선");
+		toolButtons[2] = new JButton("삼각형");
+		toolButtons[3] = new JButton("사각형");
+		toolButtons[4] = new JButton("원");
+		toolButtons[5] = new JButton("지우기");
 		
 		for(int i = 0; i<toolButtons.length; i++) {
 			toolButtons[i].addMouseListener(this);
@@ -29,13 +37,15 @@ public class Buttons implements MouseListener{
 
 	}
 
+
 @Override
 public void mouseClicked(MouseEvent e) {
-	if(e.getSource()== toolButtons[0]) {
-		System.out.println("새 종이");
-		System.out.println(e.getX());
-		System.out.println(e.getY());
+	if(e.getSource() == toolButtons[1]) {
+		buttonValue=toolButtons[1].getText();
+		canvasEvent.buttonValue(buttonValue);
 	}
+	
+	
 }
 
 @Override
@@ -46,7 +56,7 @@ public void mousePressed(MouseEvent e) {
 
 @Override
 public void mouseReleased(MouseEvent e) {
-	// TODO Auto-generated method stub
+	
 	
 }
 
@@ -61,4 +71,5 @@ public void mouseExited(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 }
+
 }

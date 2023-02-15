@@ -1,4 +1,4 @@
-package view;
+package Event;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -7,42 +7,47 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JPanel;
 
-public class Draw extends Canvas implements MouseListener{
+import view.Canvas;
+
+public class CanvasEvent extends Canvas implements MouseListener{
+	
+	 
+	Draw draw = new Draw();
+	
 	int x;
 	int y;
 	int x1;
 	int y1;
-	public Draw() {
+
+	private String value;
+	public CanvasEvent() {
 		super();
-		addMouseListener(this);
+		panel.addMouseListener(this);
 	}
 
+	public void buttonValue(String buttonValue) {
+		buttonValue = this.value;
+		
+	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		this.x = e.getX();
-		this.y = e.getY();
-		
-	//	System.out.println("Click");
-		
+		System.out.println(this.value);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		this.x = e.getX();
 		this.y = e.getY();
 		
-		System.out.println("초기 값 X:"+this.x);
-		System.out.println("초기 값 Y:"+this.y);
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		this.x1 = e.getX();
 		this.y1 = e.getY();
-		
-		System.out.println("초기 값 X:"+this.x1);
-		System.out.println("초기 값 Y:"+this.y1);
+		draw.drawInfo(x, y,x1,y1);
+		Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
+		draw.paint(graphics);
 	}
 
 	@Override
@@ -56,4 +61,9 @@ public class Draw extends Canvas implements MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	
+	
+	
 }
