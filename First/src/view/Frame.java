@@ -6,7 +6,7 @@ import java.awt.Container;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Event.CanvasEvent;
+import event.CanvasEvent;
 
 
 public class Frame extends JFrame{

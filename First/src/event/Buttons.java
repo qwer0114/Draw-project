@@ -1,4 +1,4 @@
-package Event;
+package event;
 
 import java.awt.Color;
 import java.awt.PointerInfo;
@@ -12,8 +12,8 @@ import view.Canvas;
 public class Buttons implements MouseListener{
 	public JButton[] toolButtons = new JButton[6];
 	Canvas canvas = new Canvas();
-	CanvasEvent canvasEvent = new CanvasEvent();
-	String buttonValue;
+	
+	static String buttonValue;
 
 	
 
@@ -23,7 +23,9 @@ public class Buttons implements MouseListener{
 //	JButton cirBtn = new JButton("원"); 
 //	JButton eraseBtn = new JButton("지우기"); 
 
-	public Buttons() {
+	 public Buttons() {
+		super();
+		Buttons.buttonValue = "선";
 		toolButtons[0] = new JButton("새 종이");
 		toolButtons[1] = new JButton("직선");
 		toolButtons[2] = new JButton("삼각형");
@@ -41,11 +43,9 @@ public class Buttons implements MouseListener{
 @Override
 public void mouseClicked(MouseEvent e) {
 	if(e.getSource() == toolButtons[1]) {
-		buttonValue=toolButtons[1].getText();
-		canvasEvent.buttonValue(buttonValue);
+		Buttons.buttonValue = toolButtons[1].getText();
+		
 	}
-	
-	
 }
 
 @Override

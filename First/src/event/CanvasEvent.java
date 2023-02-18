@@ -1,10 +1,11 @@
-package Event;
+package event;
 
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import view.Canvas;
@@ -19,19 +20,24 @@ public class CanvasEvent extends Canvas implements MouseListener{
 	int x1;
 	int y1;
 
-	private String value;
 	public CanvasEvent() {
 		super();
+//		toolButtons[0] = new JButton("새 종이");
+//		toolButtons[1] = new JButton("직선");
+//		toolButtons[2] = new JButton("삼각형");
+//		toolButtons[3] = new JButton("사각형");
+//		toolButtons[4] = new JButton("원");
+//		toolButtons[5] = new JButton("지우기");
+//		for(int i = 0; i<toolButtons.length; i++) {
+//			toolButtons[i].addMouseListener(this);
+//		}
 		panel.addMouseListener(this);
+
 	}
 
-	public void buttonValue(String buttonValue) {
-		buttonValue = this.value;
-		
-	}
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		System.out.println(this.value);
+	public void mouseClicked(MouseEvent e) {	
+		System.out.println(Buttons.buttonValue);
 	}
 
 	@Override
@@ -47,7 +53,9 @@ public class CanvasEvent extends Canvas implements MouseListener{
 		this.y1 = e.getY();
 		draw.drawInfo(x, y,x1,y1);
 		Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
-		draw.paint(graphics);
+		if(Buttons.buttonValue.equals("직선")) {
+			draw.paint(graphics);
+		}
 	}
 
 	@Override

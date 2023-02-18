@@ -7,12 +7,13 @@ import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 
-import Event.Buttons;
+import event.Buttons;
+import event.CanvasEvent;
 
 public class Toolbar extends JToolBar {
 	JToolBar toolBar = new JToolBar();
 	Buttons buttons = new Buttons();
-	
+	CanvasEvent canvasEvent = new CanvasEvent();
 
 	public Toolbar() {
 		setBackground(Color.LIGHT_GRAY);

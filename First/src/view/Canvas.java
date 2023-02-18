@@ -9,6 +9,7 @@ public class Canvas {
 	protected JPanel panel = new JPanel();  
 	
 	
+	
 	public Canvas(){
 		getPanel();
 	}
