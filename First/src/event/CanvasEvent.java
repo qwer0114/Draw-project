@@ -54,7 +54,7 @@ public class CanvasEvent extends Canvas implements MouseListener{
 		draw.drawInfo(x, y,x1,y1);
 		Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
 		if(Buttons.buttonValue.equals("직선")) {
-			draw.paint(graphics);
+			draw.paint(graphics); //직선일때 그려지는 그림
 		}
 	}
 
