@@ -1,5 +1,6 @@
 package event;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import view.Canvas;
@@ -15,7 +16,7 @@ public class Draw extends Canvas{
 	int x1;
 	int y1;
 		
-	public void drawInfo(int x, int y, int x1, int y1) {
+	public void drawInfo(int x, int y, int x1, int y1) { //그림 그리기 위한 위치값들 저장
 		this.x =x ;
 		this.y =y;
 		this.x1 =x1;
@@ -25,7 +26,15 @@ public class Draw extends Canvas{
 	}
 		
 	public void paint(Graphics g) {
+		g.setColor(ColorChooser.color);
 		g.drawLine(x, y, x1, y1);
+		g.dispose();
+	}
+	
+	public void paintRect(Graphics g) {
+		g.setColor(ColorChooser.color);
+		g.drawRect(x, y, x1, y1);
+		g.dispose();
 	}
 	
 	

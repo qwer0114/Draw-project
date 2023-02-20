@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import view.Canvas;
 
 public class Buttons implements MouseListener{
-	public JButton[] toolButtons = new JButton[6];
+	public JButton[] toolButtons = new JButton[8];
 	Canvas canvas = new Canvas();
 	
 	static String buttonValue;
@@ -25,13 +25,15 @@ public class Buttons implements MouseListener{
 
 	 public Buttons() {
 		super();
-		Buttons.buttonValue = "선";
+		Buttons.buttonValue = "펜";
 		toolButtons[0] = new JButton("새 종이");
-		toolButtons[1] = new JButton("직선");
-		toolButtons[2] = new JButton("삼각형");
-		toolButtons[3] = new JButton("사각형");
-		toolButtons[4] = new JButton("원");
-		toolButtons[5] = new JButton("지우기");
+		toolButtons[1] = new JButton("펜");
+		toolButtons[2] = new JButton("직선");
+		toolButtons[3] = new JButton("삼각형");
+		toolButtons[4] = new JButton("사각형");
+		toolButtons[5] = new JButton("원");
+		toolButtons[6] = new JButton("지우기");
+		toolButtons[7] = new JButton("색상");
 		
 		for(int i = 0; i<toolButtons.length; i++) {
 			toolButtons[i].addMouseListener(this);
@@ -42,9 +44,14 @@ public class Buttons implements MouseListener{
 
 @Override
 public void mouseClicked(MouseEvent e) {
-	if(e.getSource() == toolButtons[1]) {
+	if(e.getSource() == toolButtons[1]) { //펜 일때 
 		Buttons.buttonValue = toolButtons[1].getText();
-		
+	}else if(e.getSource() == toolButtons[2]) { // 직선일때 
+		Buttons.buttonValue = toolButtons[2].getText();
+	}else if(e.getSource() == toolButtons[4]) {
+		Buttons.buttonValue = toolButtons[4].getText();
+	}else if(e.getSource() == toolButtons[7]) {
+		ColorChooser colorChooser = new ColorChooser();
 	}
 }
 
