@@ -46,15 +46,23 @@ public class CanvasEvent extends Canvas implements MouseListener,MouseMotionList
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		if(Buttons.buttonValue.equals("직선")) {
-			Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
+		Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
+		
+		switch (Buttons.buttonValue){
+		case "직선":
 			draw.drawInfo(x, y,x1,y1);
 			draw.paint(graphics); //직선일때 그려지는 그림
-		}else if(Buttons.buttonValue.equals("사각형")) {
-			Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
+			break;
+		case "사각형":
 			draw.drawInfo(minx,miny,width,heigth);
-			draw.paintRect(graphics); //직선일때 그려지는 그림
-			System.out.println("사각");
+			draw.paint(graphics); //사각형 그리기 
+			break;
+		case "원":
+			draw.drawInfo(minx,miny,width,heigth);
+			draw.paint(graphics); //사각형 그리기 
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -74,18 +82,28 @@ public class CanvasEvent extends Canvas implements MouseListener,MouseMotionList
 	public void mouseDragged(MouseEvent e) {
 		this.x1 = e.getX();
 		this.y1 = e.getY();
-		width = Math.abs(x1-x);
-		heigth = Math.abs(y1-y);
-		minx = Math.min(x, x1);
-		miny = Math.min(y, y1);
-
+		width = Math.abs(x1-x); // 아래에서 위로 드래그 할때 음의 값이 나올 수 있으므로 절댓값 붙임 
+		heigth = Math.abs(y1-y); // 높이는 경우에 따라 음의 값이 나올 수 있으므로 절댓값 붙임 
+		minx = Math.min(x, x1); // 사각형 시작점 x 좌표
+		miny = Math.min(y, y1); // 사각형 시작  y 좌표
 		Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
-		if(Buttons.buttonValue.equals("펜")) {
-			draw.paint(graphics); //직선일때 그려지는 그림
+		switch (Buttons.buttonValue) {
+		case "펜":
 			draw.drawInfo(x, y,x1,y1);
+			draw.paint(graphics); //직선일때 그려지는 그림
 			this.x=this.x1; // 연속적으로 그림이 그려지기 위해서는 초기 x 값과 나중 x 값이 같아야함 
 			this.y=this.y1;
+			break;
+		case "지우개":
+			draw.drawInfo(x, y,x1,y1);
+			draw.paint(graphics); //직선일때 그려지는 그림
+			this.x=this.x1; // 연속적으로 그림이 그려지기 위해서는 초기 x 값과 나중 x 값이 같아야함 
+			this.y=this.y1;
+			break;
+		default:
+			break;
 		}
+		
 		
 	}
 
