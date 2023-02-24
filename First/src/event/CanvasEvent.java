@@ -35,7 +35,7 @@ public class CanvasEvent extends Canvas implements MouseListener,MouseMotionList
 	@Override
 	public void mouseClicked(MouseEvent e) {	
 		
-	}
+			}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -87,6 +87,7 @@ public class CanvasEvent extends Canvas implements MouseListener,MouseMotionList
 		minx = Math.min(x, x1); // 사각형 시작점 x 좌표
 		miny = Math.min(y, y1); // 사각형 시작  y 좌표
 		Graphics graphics  = panel.getGraphics(); //그래픽 객체 얻어오는 방법
+		
 		switch (Buttons.buttonValue) {
 		case "펜":
 			draw.drawInfo(x, y,x1,y1);

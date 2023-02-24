@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import view.Canvas;
 
 public class Buttons implements MouseListener{
-	public JButton[] toolButtons = new JButton[7];
+	public JButton[] toolButtons = new JButton[8];
 	Canvas canvas = new Canvas();
 	
 	static String buttonValue;
@@ -27,6 +27,7 @@ public class Buttons implements MouseListener{
 		toolButtons[4] = new JButton("원");
 		toolButtons[5] = new JButton("지우개");
 		toolButtons[6] = new JButton("색상");
+		toolButtons[7]= new JButton("텍스트");
 		ImageIcon imageIcon;
 		for(int i = 0; i<toolButtons.length; i++) {
 			imageIcon = new ImageIcon("icon/icon"+i+".png");
