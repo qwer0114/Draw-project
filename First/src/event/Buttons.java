@@ -27,7 +27,7 @@ public class Buttons implements MouseListener{
 		toolButtons[4] = new JButton("원");
 		toolButtons[5] = new JButton("지우개");
 		toolButtons[6] = new JButton("색상");
-		toolButtons[7]= new JButton("텍스트");
+		toolButtons[7]= new JButton("폰트");
 		ImageIcon imageIcon;
 		for(int i = 0; i<toolButtons.length; i++) {
 			imageIcon = new ImageIcon("icon/icon"+i+".png");
@@ -56,6 +56,9 @@ public void mouseClicked(MouseEvent e) {
 		Buttons.buttonValue = toolButtons[5].getText();
 	}else if(e.getSource() == toolButtons[6]) {
 		ColorChooser colorChooser = new ColorChooser();
+	}else if(e.getSource() == toolButtons[7]) {	
+		FontChooser fontChooser = new FontChooser();
+		
 	}
 }
 
